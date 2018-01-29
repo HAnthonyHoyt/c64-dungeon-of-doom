@@ -8,4 +8,4 @@ In this repository, you can find the C64 version of the code for your review.  T
 how to use the applications, please be sure to check out the Usborne website and download your copy
 of the book for free.
 
-# https://usborne.com/browse-books/features/computer-and-coding-books/
+* https://usborne.com/browse-books/features/computer-and-coding-books/
