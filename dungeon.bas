@@ -4,7 +4,7 @@
 20 print chr$(147):poke 53280,0:poke 53281,0
 30 let bg=2:let fg=1:let t=0:let l=3:let lw=w-3:gosub 280
 40 print bg$(0);:print bg$(2);
-50 print hm$;left$(cu$, 1);spc(1);"level generator"
+50 print hm$;left$(cu$, 1);spc(1);"level generator";
 60 print hm$;left$(cu$, 2);spc(1);"this is level:";le;
 70 print hm$;left$(cu$, 3);spc(1);"press h for help"
 80 let bg=3:let fg=2:let t=5:let l=15:let lw=15:gosub 280
@@ -15,7 +15,7 @@
 130 if i$="z" and y<15 then let y=y+1
 140 if i$="n" and x>1 then let x=x-1
 150 if i$="m" and x<15 then let x=x+1
-160 if I$>"/" and i$<":" then gosub 230
+160 if i$>"/" and i$<":" then gosub 230
 170 print bg$(0);:print bg$(3);
 180 print hm$;left$(cu$, y+5);spc(x);chr$(os);
 190 print hm$;left$(cu$, y+5);spc(x);chr$(r(x,y));
@@ -25,7 +25,7 @@
 230 let i=val(i$)
 240 if i=9 then let i=8+int(rnd(1)*3+1)
 250 if i=5 then let ix=x:let iy=y
-260 let r(x,y)=co+i
+260 let r(x,y)=c0+i
 270 return
 280 print hm$;left$(cu$,t);spc(0);
 290 print bg$(fg);:print left$(b$, lw+2)
@@ -33,7 +33,7 @@
 310 for i=1 to l
 320 print bg$(fg);" ";bg$(bg);left$(b$,lw);bg$(fg);" "
 330 next i
-340 print bg$(fg);:print left$(b$, lw+2)
+340 print bg$(fg);:print left$(b$, lw+2);
 350 return
 360 print bg$(3);:print bg$(1);
 370 for h=1 to 10
@@ -44,7 +44,7 @@
 420 return
 430 get g$:if g$="" then goto 430
 440 return
-450 print hm$;left$(cu$, 4);spc(1);"one moment please";
+450 print hm$;left$(cu$, 4);spc(1);"one moment please.";
 460 let s$=""
 470 for j=1 to 15
 480 for k=1 to 15
@@ -59,7 +59,7 @@
 560 print#1,mid$(s$,i*76+1,76)
 565 next i
 570 close 1
-580 print hm$;left$(cu$, 4);spc(1);left$(b$,w);
+580 print hm$;left$(cu$, 4);spc(1);left$(b$,w)
 590 let le=le+1:gosub 700
 600 return
 610 dim r(15,15),h$(10)
@@ -73,13 +73,13 @@
 690 next i: gosub 810
 700 for j=1 to 15
 710 for k=1 to 15
-720 let r(j,k)=co
+720 let r(j,k)=c0
 730 next k
 740 next j
 750 let ix=0:let iy=0
 760 let b$="":for i=1 to w:let b$=b$+" ":next i
 770 return
-790 os=96:co=os+6:w=40:gosub 4000
+790 os=96:c0=os+6:w=40:gosub 4000
 800 return
 810 rem read characters
 820 for i=0 to 7:read a:poke 36352+i,255-a:next i
