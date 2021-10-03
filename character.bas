@@ -145,7 +145,7 @@
 1410 data "axe","mace","flail","dagger","gauntlet","armoury"
 1420 data "heavy armour","chain armour","leather armour","heavy robe"
 1430 data "gold helmet","headpiece","shield","torch","accoutrements"
-1440 data "necronomicon","scrolls","ring","mysic amulet","sash","cloak"
+1440 data "necronomicon","scrolls","ring","mystic amulet","sash","cloak"
 1450 data "healing salve","potions","emporium"
 1460 for j=1 to 4
 1470 for i=1 to 9
