@@ -269,7 +269,7 @@
 2590 read w$(i)
 2600 next i
 2610 data "a good blow","well hit sire","thy aim is true","missed!","hit thee!!"
-2620 data "the monster is slain","no light","broken they ","spell exhausted"
+2620 data "the monster is slain","no light","broken thy ","spell exhausted"
 2630 data "press any key", "you need experience","exit from this level"
 2640 for i=1 to 12
 2650 read t$(i)
