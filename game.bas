@@ -257,6 +257,7 @@
 2475 next i:close 1
 2480 let fi=1
 2490 return
+2499 rem major setup subroutine
 2500 let c$="role playing game":let b$=""
 2510 let w=40: let os=96
 2520 for i=1 to w:let b$=b$+" ":next i

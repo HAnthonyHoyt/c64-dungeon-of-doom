@@ -9,6 +9,7 @@
 70 print hm$;left$(cu$, 3);spc(1);"press h for help"
 80 let bg=3:let fg=2:let t=5:let l=15:let lw=15:gosub 280
 90 let x=1:let y=1
+99 rem input handling routine here
 100 get i$
 110 if i$="h" then gosub 360
 120 if i$="a" and y>1 then let y=y-1
@@ -19,14 +20,17 @@
 170 print bg$(0);:print bg$(3);
 180 print hm$;left$(cu$, y+5);spc(x);chr$(os);
 190 print hm$;left$(cu$, y+5);spc(x);chr$(r(x,y));
+199 rem you can only save if there is an entrence
 200 if i$="s" and ix>0 then gosub 450:goto 20
 210 if i$<>"f" then goto 100
 220 stop
+229 rem number key entry handling routine
 230 let i=val(i$)
 240 if i=9 then let i=8+int(rnd(1)*3+1)
 250 if i=5 then let ix=x:let iy=y
 260 let r(x,y)=c0+i
 270 return
+275 rem routine starts here
 280 print hm$;left$(cu$,t);spc(0);
 290 print bg$(fg);:print left$(b$, lw+2)
 300 print bg$(fg);:print bg$(bg);
@@ -35,6 +39,7 @@
 330 next i
 340 print bg$(fg);:print left$(b$, lw+2);
 350 return
+359 rem help screen routine
 360 print bg$(3);:print bg$(1);
 370 for h=1 to 10
 380 print hm$;left$(cu$, 4);spc(1);h$(h);:gosub 430
@@ -44,6 +49,7 @@
 420 return
 430 get g$:if g$="" then goto 430
 440 return
+449 rem saving dungeon room routine
 450 print hm$;left$(cu$, 4);spc(1);"one moment please.";
 460 let s$=""
 470 for j=1 to 15
@@ -62,6 +68,8 @@
 580 print hm$;left$(cu$, 4);spc(1);left$(b$,w)
 590 let le=le+1:gosub 700
 600 return
+608 rem subroutine to set up everything
+609 rem variables holding the dungeon and help
 610 dim r(15,15),h$(10)
 620 gosub 790
 630 data "press any key","to move a z n m","1 wall   2 vase"
@@ -79,12 +87,14 @@
 750 let ix=0:let iy=0
 760 let b$="":for i=1 to w:let b$=b$+" ":next i
 770 return
+789 rem platform specific stuff routine
 790 os=96:c0=os+6:w=40:gosub 4000
 800 return
 810 rem read characters
 820 for i=0 to 7:read a:poke 36352+i,255-a:next i
 830 for i=0 to 95:read a:poke 36400+i,255-a:next i
 840 return
+999 rem characters data block starts here
 1000 data 255,255,255,255,255,255,255,255
 1010 data 0,0,0,0,0,0,0,0
 1020 data 85,170,85,170,85,170,85,170
@@ -98,10 +108,12 @@
 1100 data 76,158,170,190,84,30,37,88
 1110 data 0,56,84,124,56,44,68,102
 1120 data 0,8,28,42,127,85,65,34
+3999 rem universal code to set system stuff
 4000 bg$(0)=chr$(146):bg$(1)=chr$(18)+chr$(28)
 4010 bg$(2)=chr$(18)+chr$(158):bg$(3)=chr$(18)+chr$(5)
 4020 hm$=chr$(19):cu$="":for i=1 to w:let cu$=cu$+chr$(17):next i
 4030 poke 650,255:return
+4999 rem c64 initalization routine starts here
 5000 poke 52,128:poke 56,128
 5010 poke 56334,peek(56334) and 254:poke 1,peek(1) and 251
 5020 for i=0 to 2047:poke 34816+i,peek(53248+i):next i
