@@ -3,6 +3,7 @@
 10 gosub 2500
 20 gosub 2010
 30 gosub 1770
+39 rem input handling
 40 get i$
 50 if i$="a" and dx<255 then gosub 870
 60 if i$="c" and f(7)>0 and o(17)+o(18)>0 then gosub 990
@@ -16,14 +17,14 @@
 140 if nf<1 then let nf=4
 150 if i$="m" then let nx=nx+d(nf,1): let ny=ny+d(nf,2)
 160 if ny>15 then let ny=15
-170 if ny<1 then let ny = 1
+170 if ny<1 then let ny=1
 180 if nx<1 then let nx=1
 190 if nx>15 then let nx=15
 200 let rh=r(nx,ny)
 210 if rh=c1 then x=nx:y=ny:gosub 570:nx=ox:ny=oy:f(1)=f(1)-0.03
 220 if rh=c6 then let tx=nx:let ty=ny:let tf=1
 230 if tf=1 then let nx=tx:let ny=ty
-240 if f(1) > s1*0.8 and int(rnd(1)*8+1)<f(6) then let tf=0
+240 if f(1) > s1*.8 and int(rnd(1)*8+1)<f(6) then let tf=0
 250 if i$>"" then let f(1)=f(1)*0.99
 260 if f(1) < s1 then let f(1)=f(1)+(f(2)/1100)
 270 gosub 480
@@ -49,27 +50,30 @@
 450 for d=1 to 200: next d
 460 print hm$;left$(cu$,5);spc(0);left$(b$,w);:let m$=""
 470 return
+479 rem subroutine here
 480 print bg$(1);
 490 print hm$;left$(cu$,ny+5);spc(nx);mid$(f$,nf,1);
 500 print bg$(1);
-510 print hm$;left$(cu$, 8);spc(16);int(f(1));chr$(157);" ";
+510 print hm$;left$(cu$,8);spc(16);int(f(1));chr$(157);" ";
 520 print hm$;left$(cu$,11);spc(16);int(f(2));chr$(157);" ";
 530 print hm$;left$(cu$,14);spc(16);int(f(7));chr$(157);" ";
 540 print hm$;left$(cu$,17);spc(16);mid$("nesw.",nf,1);
-550 print hm$;left$(cu$,20);spc(16);int(f(5));" ";
+550 print hm$;left$(cu$,20);spc(16);int(f(5));
 560 return
+569 rem subroutine here
 570 print bg$(1);
 580 let rm=r(x,y):print hm$;left$(cu$,y+5);spc(x);chr$(rm);
 590 if abs(dx)<4 or rm<=c7 then return
 600 let mt=rm:let m=mt-c2:let mv=m/16:let ms=m*6:let dx=3:let lx=x:let ly=y
 610 return
+619 rem subroutine here
 620 let dx=lx-nx:let sx=sgn(dx):let dy=ly-ny:let sy=sgn(dy)
 630 let mx=lx-(mv*sx):let my=ly-(mv*sy):let rm=r(mx,my)
 640 if rm>c0 and rm<>mt then let my=ly:let mx=lx
 650 let r(lx,ly)=c0:let x=lx:let y=ly:gosub 570
 660 let r(mx,my)=mt:let x=mx:let y=my:gosub 570
 670 let lx=mx:let ly=my:let h=0
-680 if abx(dx)<=1 and abs(dy)<=1 and rh<>c7 then let h=m*0.5:let j=h:gosub 350
+680 if abx(dx)<=1 and abs(dy)<=1 and rh<>c7 then let h=m*.5:let j=h:gosub 350
 690 if h*12<f(6)+f(3) then return
 700 let m$=t$(5):gosub 430:gosub 360
 710 let h=h/(3+o(9) + o(10) + o(11) + o(12) + o(13) + o(14))
@@ -79,11 +83,13 @@
 750 if mb=1 and o(i)>0 then gosub 780
 760 if i<11 then let i=i+1:gosub 750
 770 return
+779 rem subroutine here
 780 let o(i)=0:let m$=t$(8)+" "+w$(i):gosub 430
 790 let mb=0:gosub 360:let j=i:gosub 350
 800 return
+809 rem subroutine here
 810 let nf=5:let f(1)=0:gosub 440
-820 print hm$;left$(cu$,5);spc(1);"thou has expired!";
+820 print hm$;left$(cu$,5);spc(1);"thou has expired!"
 830 for j=150 to 1 step -4
 840 gosub 350: gosub 360: gosub 570: gosub 480
 850 next j
@@ -92,11 +98,11 @@
 880 let h=f(1)+o(1)+o(2)+o(3)+o(4)+o(5)+o(7)+o(8)+int(rnd(1)*f(6)+1)
 890 if f(3)+f(6)<int(rnd(1)*m+1)+2 then let m$=t$(4):let ht=0
 900 let ms=ms-h:gosub 430
-910 let f(1)=f(1)-(h/100):let f(5)=f(5)+0.05
+910 let f(1)=f(1)-(h/100):let f(5)=f(5)+.05
 920 if ms<1 then gosub 940
 930 return
 940 let dx=255:let ms=0:let r(mx,my)=c0
-950 let f(5)=f(5)+0.1
+950 let f(5)=f(5)+.1
 960 let m$=t$(6):gosub 430
 970 for j=200 to 150 step -8: gosub 350: gosub 360: next j
 980 gosub 570: return
@@ -113,7 +119,7 @@
 1085 print bg$(2);
 1090 for j=1 to 5: print hm$;left$(cu$,j);spc(0);left$(b$,w);:next j: gosub 570
 1100 on sl gosub 1140,1190,1220,1280,1300,1390,1130
-1110 let f(5)=f(5)+0.2
+1110 let f(5)=f(5)+.2
 1120 gosub 430
 1130 return
 1140 for j=1 to 12
@@ -124,13 +130,13 @@
 1190 if rh=c0 then let r(nx,ny)=c7
 1200 let j=100: gosub 350: let j=200: gosub 350
 1210 return
-1220 let nx=int(rnd(1)*13+1):let ny=int(rnd(13)*b+1)
+1220 let nx=int(rnd(1)*13+1):let ny=int(rnd(1)*13+1)
 1230 for j=0 to 255 step 8
 1240 gosub 360: gosub 350
 1250 next j
 1260 gosub 480
 1270 return
-1280 f(2)=f(2)+int(rnd(1)*m(sl)+1):f(1)=f(1)+int(rnd(m(sl))*b+1):f(7)=f(7)-1
+1280 f(2)=f(2)+int(rnd(1)*m(sl)+1):f(1)=f(1)+int(rnd(1)*m(sl)+1):f(7)=f(7)-1
 1290 return
 1300 for j=1 to 30
 1310 let r(nx,ny)=int(rnd(1)*8+1)+1+c0
@@ -165,8 +171,8 @@
 1600 for n=1 to 4: let nf=n: gosub 480: next n
 1610 next i
 1620 let ms=0
-1630 print hm$;left$(cu$,2);spc(1);
-1635 print "thy score=";int((tr*10)+(gc*f(5))+f(1)+f(2)+f(3))
+1630 print hm$;left$(cu$,2);spc(1);"thy score=";
+1635 print int((tr*10)+(gc*f(5))+f(1)+f(2)+f(3))
 1640 let fi=1
 1650 return
 1660 if o(24)>0 and f(1)<s1 then let f(1)=s1:let o(24)=o(24)-1
@@ -271,7 +277,7 @@
 2600 next i
 2610 data "a good blow","well hit sire","thy aim is true","missed!","hit thee!!"
 2620 data "the monster is slain","no light","broken thy ","spell exhausted"
-2630 data "press any key", "you need experience","exit from this level"
+2630 data "press any key","you need experience","exit from this level"
 2640 for i=1 to 12
 2650 read t$(i)
 2660 next i
@@ -298,7 +304,7 @@
 2840 print bg$(1);chr$(144);
 2850 for i=1 to 15:print hm$;left$(cu$,5+i);spc(1);left$(b$,15);:next i
 2860 print bg$(1);
-2870 print hm$;left$(cu$, 7);spc(16);"str";
+2870 print hm$;left$(cu$,7);spc(16);"str";
 2880 print hm$;left$(cu$,10);spc(16);"vit";
 2890 print hm$;left$(cu$,13);spc(16);"aur";
 2900 print hm$;left$(cu$,16);spc(16);"face";
