@@ -1,4 +1,3 @@
-1   rem character creator
 10  gosub 1060
 20  print chr$(147)
 25  poke 53280,0:poke 53281,0
@@ -141,7 +140,7 @@
 1370 next i
 1380 data "strength","vitality","agility","intelligence"
 1390 data "experience","luck","aura","morality","character creation"
-1400 data "2 hand sword", "boardsword", "shortsword"
+1400 data "2 hand sword","broadsword","shortsword"
 1410 data "axe","mace","flail","dagger","gauntlet","armoury"
 1420 data "heavy armour","chain armour","leather armour","heavy robe"
 1430 data "gold helmet","headpiece","shield","torch","accoutrements"
@@ -161,12 +160,12 @@
 1570 let m$="":let as=65
 1580 let b$="":for i=1 to w:let b$=b$+" ":next i
 1590 return
-1600 let w=40: rem set up details
+1600 let w=40
 1610 gosub 4000
 1650 return
 1700 in$=""
 1710 get i$:if i$=chr$(13) then return
-1720 if i$>"/" and i$<"[" then let in$=in$+i$:print hm$;left$(cu$,y);spc(x);in$;
+1720 ifi$>"/" and i$<"[" then let in$=in$+i$:print hm$;left$(cu$,y);spc(x);in$;
 1730 goto 1710
 4000 bg$(0)=chr$(146):bg$(1)=chr$(18)+chr$(28)
 4010 bg$(2)=chr$(18)+chr$(158):bg$(3)=chr$(18)+chr$(5)
