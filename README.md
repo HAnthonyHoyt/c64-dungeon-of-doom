@@ -1,4 +1,5 @@
 # Dungeon of Doom for the C64
+
 Dungeon of Doom is a game described in the Usborne Publishing book; "Write your own fantasy games for
 your microcomputer" by Les Howarth and Cheryl Evans.  In that book, the reader is encouraged to type
 out the game from the source listings in the book into their own microcomputer.  Supported models
@@ -9,3 +10,8 @@ how to use the applications, please be sure to check out the Usborne website and
 of the book for free.
 
 * https://usborne.com/browse-books/features/computer-and-coding-books/
+
+## Project Structure
+
+The `tapes/` directory contains the program tape images: `character.tap`, `dungeon.tap`, and
+`game.tap`. Use the `saves/` directory for your character, dungeon, and game saves.
