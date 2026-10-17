@@ -120,6 +120,9 @@
 1170 for i=1 to d*3
 1180 read o$(i)
 1190 next i
+1195 print "press any key to roll your stats"
+1196 get i$: if i$="" then goto 1196
+1197 print rnd(-ti)
 1200 for i=1 to 8
 1210 let f(1,i)=int(rnd(1)*5+1)+2
 1220 next i
