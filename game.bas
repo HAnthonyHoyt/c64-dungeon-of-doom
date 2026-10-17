@@ -229,6 +229,7 @@
 2220 let m((i-1)*3+j)=o(16+i)*f(7)
 2230 next j: next i
 2240 if o(16)=1 then let lt=20
+2245 x=rnd(-ti)
 2250 return
 2260 let m$="one moment please": gosub 430
 2270 let s$="":let t$=""
