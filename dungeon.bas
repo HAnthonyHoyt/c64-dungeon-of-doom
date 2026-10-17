@@ -1,4 +1,3 @@
-1 rem dungeon generator
 5 gosub 5000
 10 gosub 610
 20 print chr$(147):poke 53280,0:poke 53281,0
@@ -40,7 +39,6 @@
 380 print hm$;left$(cu$, 4);spc(1);h$(h);:gosub 430
 390 print hm$;left$(cu$, 4);spc(1);left$(b$,w-2);
 400 next h
-410 rem leave out this line
 420 return
 430 get g$:if g$="" then goto 430
 440 return
@@ -81,7 +79,7 @@
 770 return
 790 os=96:c0=os+6:w=40:gosub 4000
 800 return
-810 rem read characters
+810 rem read the characters
 820 for i=0 to 7:read a:poke 36352+i,255-a:next i
 830 for i=0 to 95:read a:poke 36400+i,255-a:next i
 840 return
