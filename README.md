@@ -11,6 +11,10 @@ of the book for free.
 
 * https://usborne.com/browse-books/features/computer-and-coding-books/
 
+The BASIC listings aim to preserve the book's C64 version, including its platform-specific
+conversions. See [Bugs and possible improvements](IMPROVEMENTS.md) for known limitations,
+transcription corrections, and optional changes to behavior, style, and tooling.
+
 ## How to play
 
 Before you can explore a dungeon, you need **at least one saved dungeon level and one saved
@@ -60,3 +64,8 @@ The `tapes/` directory contains the program tape images: `character.tap`, `dunge
 * [Character creator](cheatsheets/character.md)
 * [Dungeon creator](cheatsheets/dungeon.md)
 * [Game](cheatsheets/game.md)
+
+## Credits
+
+Thanks to [ajfclark](https://github.com/ajfclark) for reviewing the C64 listings,
+reporting bugs, and suggesting improvements.

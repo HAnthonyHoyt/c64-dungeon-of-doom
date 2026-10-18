@@ -157,7 +157,7 @@
 1530 let j=o(24)+o(23)*10:gosub 350
 1540 return
 1550 print bg$(2);
-1560 print hm$;left$(cu$,1);spc(0);" thy quest is over! ";
+1560 print hm$;left$(cu$,1);spc(0);" thy quest is over! "
 1570 for i=1 to 18
 1580 let j=t(i): gosub 350
 1590 let x=nx:let y=ny
@@ -292,7 +292,6 @@
 2810 print c$;left$(b$,w-len(c$));
 2820 print bg$(2);
 2830 for i=1 to 5:print left$(b$,w);:next i
-2835 print bg$(1);:print bg$(0);
 2840 print bg$(1);chr$(144);
 2850 for i=1 to 15:print hm$;left$(cu$,5+i);spc(1);left$(b$,15);:next i
 2860 print bg$(1);
