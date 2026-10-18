@@ -62,7 +62,7 @@
 610 if o(n)>0 and n<23 then let m$="you have it sire":return
 620 let pr=f(j,k)-br
 630 if h<pr then let m$="you cannot afford":return
-640 if of>=pr and y=1 then let o(n)=o(n)+p(n):let h=h-pr:let m$="tis yours'"
+640 if of>=pr and y=1 then let o(n)=o(n)+p(n):let h=h-pr:let m$="tis yours!"
 650 if of<pr and y=1 then let m$="offer rejected"
 660 if h<0 then let h=0
 670 return
@@ -84,14 +84,14 @@
 830 print hm$;left$(cu$,0);spc(0);f$(j,9)
 840 let bg=2:let fg=3:let t=1:let l=2
 850 gosub 980
-860 print bg$(0);:print bg$(2);
+860 print bg$(2);
 870 print hm$;left$(cu$,2);spc(2);left$(b$,17);hm$;left$(cu$,2);spc(2);m$;
 875 print hm$;left$(cu$,3);spc(15);left$(b$,4);
 880 print hm$;left$(cu$,3);spc(2);h$;hm$;left$(cu$,3);spc(15);h;" ";
 890 return
 900 let bg=3:let fg=2:let t=5:let l=15
 910 gosub 980
-920 print bg$(0);:print bg$(3);
+920 print bg$(3);
 930 for i=1 to 8
 940 let y=t+(i-1)*2+1
 945 print hm$;left$(cu$,y);spc(15);left$(b$,5);
@@ -100,7 +100,7 @@
 970 return
 980 print hm$;left$(cu$,t);spc(0);
 990 print bg$(fg);:print left$(b$,w);
-1000 print bg$(fg);:print bg$(bg);
+1000 print bg$(bg);
 1010 for i=1 to l
 1020 print bg$(fg);" ";bg$(bg);left$(b$,w-2);bg$(fg);" ";
 1030 next i
